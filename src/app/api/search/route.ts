@@ -4,13 +4,13 @@ import csvParser from 'csv-parser';
 import path from 'path';
 
 export function GET(req: NextRequest): Promise<Response> {
-    // Get the name from the query parameters
+    
     const searchTerm = req.nextUrl.searchParams;
     const name = searchTerm.get('name')?.toLowerCase();
     let result: { name: string; value: string; label1: string; label2: string; label3: string } | null = null;
 
-    // Specify the correct relative path to your CSV file
-    const filePath = path.join(process.cwd(), 'public', 'data.csv'); // Adjust the path as needed
+    
+    const filePath = path.join(process.cwd(), 'public', 'data.csv'); 
 
     // Read the CSV file and parse it
     return new Promise<Response>((resolve, reject) => {
