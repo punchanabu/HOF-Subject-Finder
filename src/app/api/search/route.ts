@@ -3,7 +3,7 @@ import fs from 'fs';
 import csvParser from 'csv-parser';
 import path from 'path';
 
-export function GET(req: NextRequest) {
+export function GET(req: NextRequest): Promise<Response> {
     // Get the name from the query parameters
     const searchTerm = req.nextUrl.searchParams;
     const name = searchTerm.get('name')?.toLowerCase();
@@ -13,12 +13,18 @@ export function GET(req: NextRequest) {
     const filePath = path.join(process.cwd(), 'public', 'data.csv'); // Adjust the path as needed
 
     // Read the CSV file and parse it
-    return new Promise((resolve, reject) => {
+    return new Promise<Response>((resolve, reject) => {
         fs.createReadStream(filePath)
             .pipe(csvParser())
             .on('data', (row) => {
                 if (row.name.toLowerCase().includes(name)) {
-                    result = { name: row.name, label1: row.label1, label2: row.label2, label3: row.label3 };
+                    result = { 
+                        name: row.name, 
+                        value: row.value, 
+                        label1: row.label1, 
+                        label2: row.label2, 
+                        label3: row.label3 
+                    };
                 }
             })
             .on('end', () => {
@@ -29,7 +35,7 @@ export function GET(req: NextRequest) {
                 }
             })
             .on('error', (err) => {
-                reject(NextResponse.error(`Error reading or parsing CSV file: ${err.message}`));
+                reject(NextResponse.error());
             });
     });
 }
