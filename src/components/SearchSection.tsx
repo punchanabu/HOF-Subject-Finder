@@ -50,7 +50,7 @@ function SearchSection() {
       <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
         <input
           type="text"
-          placeholder="Type in your name..."
+          placeholder="ใส่ไอดีของเราลงไป...."
           className="w-full text-black p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
           value={searchTerm}
           onChange={handleInputChange}
@@ -59,7 +59,7 @@ function SearchSection() {
           type="submit"
           className="p-3 bg-indigo-500 text-white rounded-md hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
         >
-          Search
+          ค้นหา
         </button>
       </form>
       {isLoading && (
@@ -74,30 +74,30 @@ function SearchSection() {
       {(searchResults && 'name' in searchResults)  && (
         <>
         <div className="mt-4 p-4 border border-gray-200 rounded-lg shadow-sm bg-gray-50">
-          <h3 className="text-lg text-black font-bold font-noto-sans-thai mb-2 text-xl">ผลการค้นหา</h3>
+          <h3 className="text-lg text-black font-bold font-noto-sans-thai mb-2 text-xl">🔎 ผลการค้นหา</h3>
           <div className="flex items-center text-black font-noto-sans-thai mb-1 text-xl">
-            <FaUser className="mr-2" />
+            <FaUser className="mr-2 rounded-x l" />
             <span className="font-semibold"></span> {searchResults.name}
           </div>
         </div>
 
         <div className="mt-4 p-4 border border-gray-200 rounded-lg shadow-sm bg-gray-50">
-            <h3 className="text-lg text-black font-bold font-noto-sans-thai mb-2 text-xl">ฐานที่ต้องไป</h3>
+            <h3 className="text-lg text-black font-bold font-noto-sans-thai mb-2 text-xl">📘 วิชา</h3>
             <div className="space-y-0">
               <div className="flex flex-col items-center">
-                <p className='text-black font-noto-sans-thai text-2xl'>ฐานแรก</p>
+                <p className='text-black font-noto-sans-thai text-2xl'>วิชาแรก</p>
                 <FaCircle className="text-orange-500 text-4xl rounded-full" />
                 <p className="text-black font-noto-sans-thai text-xl">&quot;{searchResults.label1}&quot;</p>
                 <div className="w-0.5 h-12 bg-orange-300"></div>
               </div>
               <div className="flex flex-col items-center mb-0">
-                <p className='text-black font-noto-sans-thai text-2xl'>ฐานสอง</p>
+                <p className='text-black font-noto-sans-thai text-2xl'>วิชาสอง</p>
                 <FaCircle className="text-orange-500 text-4xl rounded-full" />
                 <p className="text-black font-noto-sans-thai text-xl">&quot;{searchResults.label2}&quot;</p>
                 <div className="w-0.5 h-12 bg-orange-300"></div>
               </div>
               <div className="flex flex-col items-center mt-0">
-                <p className='text-black font-noto-sans-thai text-2xl'>ฐานสาม</p>
+                <p className='text-black font-noto-sans-thai text-2xl'>วิชาสาม</p>
                 <FaCircle className="text-orange-500 text-4xl rounded-full" />
                 <p className="text-black font-noto-sans-thai text-xl">&quot;{searchResults.label3}&quot;</p>
               </div>
