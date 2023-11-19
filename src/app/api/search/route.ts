@@ -7,7 +7,7 @@ export function GET(req: NextRequest): Promise<Response> {
     
     const searchTerm = req.nextUrl.searchParams;
     const name = searchTerm.get('name')?.toLowerCase();
-    let result: { name: string; value: string; label1: string; label2: string; label3: string } | null = null;
+    let result: { name: string; value: string; label1: string; label2: string; label3: string; nickname: string; } | null = null;
 
     
     const filePath = path.join(process.cwd(), 'public', 'data.csv'); 
@@ -21,6 +21,7 @@ export function GET(req: NextRequest): Promise<Response> {
                     result = { 
                         name: row.name, 
                         value: row.value, 
+                        nickname: row.nickname,
                         label1: row.label1, 
                         label2: row.label2, 
                         label3: row.label3 

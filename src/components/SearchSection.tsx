@@ -6,6 +6,7 @@ type SearchResult = {
   label1: string;
   label2: string;
   label3: string;
+  nickname: string;
 };
 
 function SearchSection() {
@@ -15,7 +16,7 @@ function SearchSection() {
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const handleInputChange = (event: any) => {
     setSearchTerm(event.target.value);
-    console.log(searchTerm);
+    // console.log(searchTerm);
     setErrorMessage('');
   };
 
@@ -27,7 +28,7 @@ function SearchSection() {
       const response = await fetch(`/api/search?name=${searchTerm}`);
      
       const data = await response.json();
-
+      // console.log(data);
       if (response.ok) {
         setSearchResults(data as SearchResult);
       } else {
@@ -50,7 +51,7 @@ function SearchSection() {
       <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
         <input
           type="text"
-          placeholder="ใส่ไอดีของเราลงไป...."
+          placeholder="ใส่ไอดีของเราลงไป.... เช่น 02"
           className="w-full text-black p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
           value={searchTerm}
           onChange={handleInputChange}
@@ -74,15 +75,16 @@ function SearchSection() {
       {(searchResults && 'name' in searchResults)  && (
         <>
         <div className="mt-4 p-4 border border-gray-200 rounded-lg shadow-sm bg-gray-50">
-          <h3 className="text-lg text-black font-bold font-noto-sans-thai mb-2 text-xl">🔎 ผลการค้นหา</h3>
-          <div className="flex items-center text-black font-noto-sans-thai mb-1 text-xl">
+          <h3 className="text-lg text-black font-bold font-noto-sans-thai mb-2 text-xl">ผลการค้นหา</h3>
+          <div className="flex items-center text-black font-noto-sans-thai mb-1 text-xl space-x-1">
             <FaUser className="mr-2 rounded-x l" />
-            <span className="font-semibold"></span> {searchResults.name}
+            <span className='font-mono'>[{searchResults.name}] </span>
+            <span className="font-semibold"></span> {searchResults.nickname}
           </div>
         </div>
 
         <div className="mt-4 p-4 border border-gray-200 rounded-lg shadow-sm bg-gray-50">
-            <h3 className="text-lg text-black font-bold font-noto-sans-thai mb-2 text-xl">📘 วิชา</h3>
+            <h3 className="text-lg text-black font-bold font-noto-sans-thai mb-2 text-xl">วิชา</h3>
             <div className="space-y-0">
               <div className="flex flex-col items-center">
                 <p className='text-black font-noto-sans-thai text-2xl'>วิชาแรก</p>
