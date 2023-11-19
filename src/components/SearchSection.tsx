@@ -107,7 +107,7 @@ function SearchSection() {
           </div>
       </>
       )}
-      {(searchResults && !('name' in searchResults) && searchResults != null) && <p className='text-red-400 font-noto-sans-thai mt-5'>ไม่เจอชื่อ ในฐานข้อมูล</p>}
+      {(searchResults && !('name' in searchResults) && searchResults != null) && <p className='text-red-400 font-noto-sans-thai mt-5'>ไม่เจอไอดี ในฐานข้อมูล</p>}
       {errorMessage && (
         <p className="mt-4 text-red-500">{errorMessage}</p>
       )}
