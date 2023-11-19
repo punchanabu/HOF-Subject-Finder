@@ -89,19 +89,19 @@ function SearchSection() {
               <div className="flex flex-col items-center">
                 <p className='text-black font-noto-sans-thai text-2xl'>วิชาแรก</p>
                 <FaCircle className="text-orange-500 text-4xl rounded-full" />
-                <p className="text-black font-noto-sans-thai text-xl">&quot;{searchResults.label1}&quot;</p>
+                <p className="text-black font-noto-sans-thai text-xl">{searchResults.label1}</p>
                 <div className="w-0.5 h-12 bg-orange-300"></div>
               </div>
               <div className="flex flex-col items-center mb-0">
                 <p className='text-black font-noto-sans-thai text-2xl'>วิชาสอง</p>
                 <FaCircle className="text-orange-500 text-4xl rounded-full" />
-                <p className="text-black font-noto-sans-thai text-xl">&quot;{searchResults.label2}&quot;</p>
+                <p className="text-black font-noto-sans-thai text-xl">{searchResults.label2}</p>
                 <div className="w-0.5 h-12 bg-orange-300"></div>
               </div>
               <div className="flex flex-col items-center mt-0">
                 <p className='text-black font-noto-sans-thai text-2xl'>วิชาสาม</p>
                 <FaCircle className="text-orange-500 text-4xl rounded-full" />
-                <p className="text-black font-noto-sans-thai text-xl">&quot;{searchResults.label3}&quot;</p>
+                <p className="text-black font-noto-sans-thai text-xl">{searchResults.label3}</p>
               </div>
             </div>
           </div>
